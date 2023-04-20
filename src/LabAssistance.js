@@ -12,7 +12,7 @@ import "./LabAssistance.scss";
 const LabAssistance = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
-      <Route exact path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/feedback" element={<Feedback />} />
     </Route>
   )

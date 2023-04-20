@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { GrNext as NextIcon } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 //
+import { updateName } from "../../../../redux/slices/student";
 import "./index.scss";
 
 export default function Assistance({ lab_data }) {
@@ -15,6 +17,9 @@ export default function Assistance({ lab_data }) {
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const matricula = watch("matricula");
 
   function lookForStudent(matricula) {
@@ -39,23 +44,19 @@ export default function Assistance({ lab_data }) {
 
   }, [matricula]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    if (data) {
-      console.log("data: ", data);
-    }
-  
-  }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function onSubmit(formData) {
     if (steps === 1) {
       formNode.current.reset(); setSteps(0);
       console.log("Form submitted: ", formData);
+      navigate("/feedback");
     }
 
     const student = lookForStudent(formData.matricula);
     if (student) {
       setData({ ...data, ...student });
       setSteps(steps + 1);
+      dispatch(updateName({ name: student.nombre }));
 
     } else {
       alert("No se encontró al estudiante");
@@ -102,7 +103,10 @@ export default function Assistance({ lab_data }) {
                 ¿Confirmas tu asistencia <br/> <strong>{data.nombre}</strong>? *
               </span>
             )}
-            <div className="button-wrapper">
+            <div className="button-wrapper confirmation">
+              <button onClick={() => setSteps(steps - 1)} className="secondary">
+                EDITAR
+              </button>
               <button type="submit">
                 CONFIRMAR
               </button>
@@ -110,13 +114,6 @@ export default function Assistance({ lab_data }) {
           </>
         )}
       </form>
-      {/* {steps === 2 && (
-        <div className="feedback-screen">
-          <h3>
-            ¡Gracias por confirmar tu asistencia <strong>{data.nombre.split(" ")[0]}</strong>!
-          </h3>
-        </div>
-      )} */}
     </section>
   );
 }
