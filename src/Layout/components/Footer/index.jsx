@@ -1,51 +1,31 @@
-import { GrLinkedin } from "react-icons/gr";
-import { BsInstagram as InstaIcon, BsGithub as GitHubIcon } from "react-icons/bs";
+import { BsGithub as GitHubIcon } from "react-icons/bs";
 //
 import "./index.scss";
 
-export default function Footer() {
+export default function Footer(){
   return (
     <footer>
       <div className="footer-wrapper">
-        <section className="footer-rights">
-          <span>© Octa Aerospace SpA. Todos los derechos reservados</span>
-          <a href="https://github.com/CxrlosKenobi/" target='_blank' rel='noopener noreferrer'>
-              <p id="KenobiSignature">
-                Desarrollado por Kenobi
-              </p>
-            <div id="Kenobi" />
-          </a>
-        </section>
-        <section className="footer-rrss">
+        <div className="source-code">
           <a
-            href="https://github.com/Octa-Aerospace/"
-            target="_blank" 
-            rel="noopener noreferrer" 
-            alt="GitHub"
-            title="GitHub"
-          >
-            <GitHubIcon />
-          </a>
-          <a 
-            href="https://www.linkedin.com/company/octa-aerospace/" 
-            target="_blank" 
+            href="https://github.com/Open-Source-eUdeC/LabAssistance" 
+            target="_blank"
             rel="noopener noreferrer"
-            alt="Linkedin"
-            title="Linkedin"
           >
-            <GrLinkedin />
+            <GitHubIcon /> Código fuente
           </a>
+        </div>
+
+        <div className="signature">
           <a
-            href="https://www.instagram.com/octaaerospace/"
-            target="_blank" 
+            href="https://github.com/CxrlosKenobi"
+            target="_blank"
             rel="noopener noreferrer"
-            alt="Instagram"
-            title="Instagram"
           >
-            <InstaIcon />
+            <i className="fas fa-code"></i>   with   ❤️   by Kenobi
           </a>
-        </section>
+        </div>
       </div>
     </footer>
   );
-}
+};

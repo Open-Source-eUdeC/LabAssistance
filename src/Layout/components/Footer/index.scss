@@ -1,89 +1,62 @@
+$bg-color: transparent;
+$border-color: #d5d5d5;
+$text-color: white;
+
 footer {
-  display: flex;
-  width: 100%;
-  color: white;
-  border-top: 1px solid white;
+  background-color: $bg-color;
+  border-top: 1px solid $border-color;
+  width: 95%;
+  height: 65px;
+  margin: 0 2.5%;
 
   .footer-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     height: 100%;
-    width: 90%;
-    margin: 1rem auto;
-    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    cursor: pointer;
 
-    .footer-logo-container, .footer-rrss, .footer-rights {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      margin: 5px;
-      padding: 0;
+    & a {
+      color: $text-color;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: .7rem;
     }
 
-    .footer-logo-container {
-			height: 100px;
-			max-height: 90px;
-			width: fit-content;
-			justify-self: flex-start;
-			margin-left: 8%;
-
-      & img {
-        height: 85%;
-        display: block;
-        margin: 0 auto;
-      }
+    & .last-update {
+      justify-self: flex-start;
     }
 
-    .footer-rights {
-      height: 100%;
-      flex-direction: column;
-      order: 2;
-
-      span {
-        color: gray;
-        font-size: .8rem;
-        letter-spacing: .7px;
-        margin-top: 1rem;
-        margin: 0;
-      }
-
-      a { text-decoration: none;}
-
-      & #KenobiSignature {
-        font-weight: 300;
-        font-size: .8rem;
-        color: #c0bebe;
-        margin-bottom: 1px;
-      }
-
-      & #Kenobi {
-        height: 2px;
-        width: 100%;
-        background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);
-        border-radius: 2px;
-      }
-    }
-
-    .footer-rrss {
-      justify-self: flex-end;
-      justify-content: space-between;
-      padding: 5px;
-      order: 1;
-
-      svg {
-        color: white;
-        font-size: 1.4rem;
-        margin: 5px 20px 0;
+    .source-code {
+      a {
+        padding: 0.4rem 0.3rem;
+        border-radius: 0.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
-          cursor: pointer;
-          transform: scale(1.15);
-          transition: all 200ms;
+          text-decoration: none;
+        }
+
+        svg {
+          margin: 0 0.2rem;
         }
       }
+
+    }
+
+    & .signature {
+      justify-self: flex-end;
+    }
+
+    @media only screen and (max-width: 460px) {
+      & a { font-size: .65rem; }
+    }
+    @media only screen and (max-width: 375px) {
+      & a { font-size: .6rem; }
     }
   }
 }
