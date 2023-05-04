@@ -37,9 +37,15 @@ header {
         background-color: white;
         cursor: pointer;
 
-        svg {
-          color: black;
-          font-size: 1.3rem;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+    
+          svg {
+            font-size: 1.3rem;
+            color: #0b0b0b;
+          }
         }
       }
 
@@ -60,7 +66,7 @@ header {
 }
 
 .scrolled-header {
-  border: 0.5px solid white;
+  border: 0.5px solid #d5d5d5;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
   box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
@@ -70,10 +76,17 @@ header {
   }
 
   .header-container .spacer .header-icon {
-    background-color: black;
+    background-color: #0b0b0b;
 
-    svg {
-      color: white;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        font-size: 1.3rem;
+        color: #d5d5d5;
+      }
     }
   }
 }
