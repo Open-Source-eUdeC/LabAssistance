@@ -1,0 +1,14 @@
+.circle-loader {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2.5px solid rgba(#252525, 0.3);
+  border-top-color: #252525;
+  animation: 1.5s spin infinite linear;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
